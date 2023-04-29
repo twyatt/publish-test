@@ -29,8 +29,8 @@ jobs:
             ${{ runner.os }}-
 
       - run: echo "Build"
-      - run: echo "Tag name from GITHUB_REF_NAME: $GITHUB_REF_NAME"
-      - run: echo "Tag name from github.ref_name: ${{ github.ref_name }}"
+      - run: echo "Tag name from GITHUB_REF_NAME $GITHUB_REF_NAME"
+      - run: echo "Tag name from github.ref_name ${{ github.ref_name }}"
       - run: gh release upload "${{ github.ref_name }}" version.txt
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
