@@ -1,0 +1,32 @@
+name-template: '$RESOLVED_VERSION'
+tag-template: '$RESOLVED_VERSION'
+categories:
+  - title: '![Logo](https://user-images.githubusercontent.com/98017/187111790-bb93a9e4-9659-4c78-9bc4-1bf97f2132ac.png) JVM'
+    label: 'jvm'
+  - title: '![Logo](https://user-images.githubusercontent.com/98017/187112699-835e2ab4-4caa-4fda-a791-7d3703c07d65.png) Android'
+    label: 'android'
+  - title: '![Logo](https://user-images.githubusercontent.com/98017/187111759-ecf48bf1-0ce2-4b3e-b1e6-cce849310408.png) Apple'
+    label: 'apple'
+  - title: '![Logo](https://user-images.githubusercontent.com/98017/186749748-6f02074d-905b-4445-b031-c37a67c1b527.png) JavaScript'
+    label: 'javascript'
+  - title: '![Logo](https://user-images.githubusercontent.com/51968233/220497218-083e98a6-943a-4bda-ab0c-35047392cd9d.jpg) CLI'
+    label: 'cli'
+  - title: '🧰 Maintenance'
+    labels:
+      - 'maintenance'
+      - 'renovate'
+change-template: '- $TITLE (#$NUMBER)'
+exclude-labels:
+  - 'skip-changelog'
+version-resolver:
+  major:
+    labels:
+      - 'major'
+  minor:
+    labels:
+      - 'minor'
+  patch:
+    labels:
+      - 'patch'
+  default: patch
+template: $CHANGES
