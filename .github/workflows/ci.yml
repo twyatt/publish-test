@@ -1,0 +1,19 @@
+name: CI
+on:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: macos-12
+    steps:
+      - uses: actions/checkout@v3
+      - name: empty secrets
+        if: github.repository_owner == 'twyatt' && (secrets.SIGNING_KEY == '' || secrets.SIGNING_PASSWORD == '')
+        run: |
+          echo "secrets.SIGNING_KEY=${{ secrets.SIGNING_KEY }}"
+          echo "secrets.SIGNING_PASSWORD=${{ secrets.SIGNING_PASSWORD }}"
+      - name: secrets
+        if: github.repository_owner == 'twyatt' && secrets.SIGNING_KEY != '' && secrets.SIGNING_PASSWORD != ''
+        run: |
+          echo "secrets.SIGNING_KEY=${{ secrets.SIGNING_KEY }}"
+          echo "secrets.SIGNING_PASSWORD=${{ secrets.SIGNING_PASSWORD }}"
